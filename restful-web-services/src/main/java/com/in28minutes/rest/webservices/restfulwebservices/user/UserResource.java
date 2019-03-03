@@ -35,15 +35,15 @@ public class UserResource {
 
 	@GetMapping("users/{id}")
 	public Resource<User> retrieveUser(@PathVariable int id) {
-		 User user = service.findOne(id);
-		 if(user == null) {
-			 throw new UserNotFoundException("id-" +id);
-		 }
-		 Resource<User> resource = new Resource<>(user);
-		 ControllerLinkBuilder linkTo = linkTo(methodOn(this.getClass()).retrieveAllUsers());
-		 resource.add(linkTo.withRel("all-users"));
-		 
-		 return resource;
+		User user = service.findOne(id);
+		if (user == null) {
+			throw new UserNotFoundException("id-" + id);
+		}
+		Resource<User> resource = new Resource<>(user);
+		ControllerLinkBuilder linkTo = linkTo(methodOn(this.getClass()).retrieveAllUsers());
+		resource.add(linkTo.withRel("all-users"));
+
+		return resource;
 	}
 
 	@PostMapping("/users")
@@ -53,13 +53,13 @@ public class UserResource {
 				.toUri();
 		return ResponseEntity.created(location).build();
 	}
-	
+
 	@DeleteMapping("/users/{id}")
 	public void deleteUser(@PathVariable int id) {
-		 User user = service.deleteById(id);
-		 if(user == null) {
-			 throw new UserNotFoundException("User not found with id - " +id);
-		 }
-		
+		User user = service.deleteById(id);
+		if (user == null) {
+			throw new UserNotFoundException("User not found with id - " + id);
+		}
+
 	}
 }
