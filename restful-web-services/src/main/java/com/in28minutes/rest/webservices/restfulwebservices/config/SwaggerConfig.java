@@ -13,7 +13,6 @@ import org.springframework.context.annotation.Configuration;
 
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
-import springfox.documentation.service.VendorExtension;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -30,7 +29,7 @@ public class SwaggerConfig {
 			"https://github.com/iMorimoto/springboot_springcloud_course", "irvin.morimoto@gmail.com");
 	public static final ApiInfo DEFAULT_API_INFO = new ApiInfo("Awesome API Title", "Awesome API Documentation", "1.0",
 			"urn:tos", DEFAULT_CONTACT, "Apache 2.0", "http://www.apache.org/licenses/LICENSE-2.0",
-			new ArrayList<VendorExtension>());
+			new ArrayList<>());
 	private static final Set<String> DEFAULT_PRODUCES_AND_CONSUMES = new HashSet<>(
 			Arrays.asList("application/json"));
 
